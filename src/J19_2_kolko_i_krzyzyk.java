@@ -1,5 +1,7 @@
 import java.util.*;
 
+// Gra w kółko i krzyżyk
+
 public class J19_2_kolko_i_krzyzyk {
     public static void main(String[] args) {
 
@@ -13,8 +15,6 @@ public class J19_2_kolko_i_krzyzyk {
         plansza.put("20"," ");
         plansza.put("21"," ");
         plansza.put("22"," ");
-
-
 
         System.out.println("Zagrajmy w kółko i krzyżyk! Plansza wygląda tak:");
 
