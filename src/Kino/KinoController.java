@@ -55,7 +55,7 @@ public class KinoController {
             for (Kino temp : listaKin) {
 
                 System.out.println("Dla kina " + temp.getNazwaKina());
-                System.out.println("Dodaj filmy: <0> aby zakończyć wybór)");
+                System.out.println("Dodaj filmy: <0> aby zakończyć wybór");
                 System.out.println("Aktualnie dostępne filmy:");
 
                 int j = 0;
@@ -78,7 +78,7 @@ public class KinoController {
 
     public void repertuar() {
 
-        System.out.print("Aktualna lista kin: ");
+        System.out.print("Aktualny repertuar kin: ");
         System.out.println();
         for (Kino temp : listaKin) {
             System.out.println(temp.getNazwaKina());
