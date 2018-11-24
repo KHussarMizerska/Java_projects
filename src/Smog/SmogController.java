@@ -15,8 +15,10 @@ public class SmogController {
 
     public SmogController() {
 
-        System.out.println("                       *********   ");
+        System.out.println("                        *********   ");
+        System.out.println();
         System.out.println("  Witaj w programie  * S M O G * ! ");
+        System.out.println();
         System.out.println("                    *********   ");
         System.out.println("                   *******  ");
         System.out.println("                  ******   ");
@@ -61,34 +63,70 @@ public class SmogController {
             System.out.println("Podaj miesiąc: ");
             month = sc.nextInt();
             sc.nextLine();
-            System.out.println("Podaj dzień: ");
-            day = sc.nextInt();
-            sc.nextLine();
-            System.out.println("Podaj jakość powietrza (% normy): ");
-            air = sc.nextInt();
-            sc.nextLine();
+            //System.out.println("Podaj dzień: ");
+            //day = sc.nextInt();
+            //sc.nextLine();
 
-            Smog s = new Smog(year, month, day, air);
-            sList.add(s);
-            count++;
+            for (int i = 1; i < 29; i++) {
+                day = i;
+                Smog s = new Smog(year, month, day, air);
+                sList.add(s);
+                count++;
+            }
 
+            for (Smog temp : sList) {
+                System.out.println("Podaj jakość powietrza (% normy) w dniu " + temp.getYear() + "-" + temp.getMonth() + "-" + temp.getDay() + ":");
+                air = sc.nextInt();
+                sc.nextLine();
+                temp.setAir(air);
+            }
         }
 
         public void pokaz() {
             double suma = 0;
             System.out.println("Dane jakości powietrza z poszczególnych dni: ");
-            System.out.println();
+
             for (Smog temp:sList) {
                 System.out.format(temp.getYear() + "-" + temp.getMonth() + "-" + temp.getDay() + "    " + temp.getAir() + "%%");
                 System.out.println();
                 suma += temp.getAir();
             }
-            System.out.println("Srednia jakości powietrza z poszczególnych dni: " + suma / count);
+            System.out.println("Średnia jakość powietrza w podanym miesiącu: " + Math.round(suma/28) + "%");
 
+            suma = 0;
+            for (int i = 0; i < 7; i++) {
+                //System.out.format(sList.get(i).getYear() + "-" + sList.get(i).getMonth() + "-" + sList.get(i).getDay() + "    " + sList.get(i).getAir() + "%%");
+                //System.out.println();
+                suma += sList.get(i).getAir();
+            }
+            System.out.println("Średnia jakość powietrza w pierwszym tygodniu: " + Math.round(suma/7) + "%");
 
+            suma = 0;
+            for (int i = 7; i < 14; i++) {
+                //System.out.format(sList.get(i).getYear() + "-" + sList.get(i).getMonth() + "-" + sList.get(i).getDay() + "    " + sList.get(i).getAir() + "%%");
+                //System.out.println();
+                suma += sList.get(i).getAir();
+            }
+            System.out.println("Średnia jakość powietrza w drugim tygodniu: " + Math.round(suma/7) + "%");
+
+            suma = 0;
+            for (int i = 14; i < 21; i++) {
+                //System.out.format(sList.get(i).getYear() + "-" + sList.get(i).getMonth() + "-" + sList.get(i).getDay() + "    " + sList.get(i).getAir() + "%%");
+                //System.out.println();
+                suma += sList.get(i).getAir();
+            }
+            System.out.println("Średnia jakość powietrza w trzecim tygodniu: " + Math.round(suma/7) + "%");
+
+            suma = 0;
+            for (int i = 21; i < 28; i++) {
+                //System.out.format(sList.get(i).getYear() + "-" + sList.get(i).getMonth() + "-" + sList.get(i).getDay() + "    " + sList.get(i).getAir() + "%%");
+                //System.out.println();
+                suma += sList.get(i).getAir();
+            }
+            System.out.println("Średnia jakość powietrza w czwartym tygodniu: " + Math.round(suma/7) + "%");
+            }
         }
 
-    }
 
 
 
