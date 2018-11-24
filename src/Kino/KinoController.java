@@ -1,7 +1,6 @@
 package Kino;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class KinoController {
@@ -51,30 +50,28 @@ public class KinoController {
 
     public void dodajFilm() {
 
-        while (true) {
             for (Kino temp : listaKin) {
 
-                System.out.println("Dla kina " + temp.getNazwaKina());
-                System.out.println("Dodaj filmy: <0> aby zakończyć wybór");
-                System.out.println("Aktualnie dostępne filmy:");
+                while(true) {
+                    System.out.println("Dla kina " + temp.getNazwaKina());
+                    System.out.println("Dodaj filmy: <0> aby zakończyć wybór");
+                    System.out.println("Aktualnie dostępne filmy:");
 
-                int j = 0;
-                for (int i = 0; i < filmyLista.size(); i++) {
-                    System.out.println(i + 1 + " - " + filmyLista.get(i));
-                    j = i;
-                }
+                    for (int i = 0; i < filmyLista.size(); i++) {
+                        System.out.println(i + 1 + " - " + filmyLista.get(i));
+                    }
 
-                int d = sc.nextInt();
-                sc.nextLine();
-                if (d == j + 1) {
-                    temp.getfLista().add(filmyLista.get(j));
-                } else if (d == 0) {
-                    break;
+                    int d = sc.nextInt();
+                    sc.nextLine();
+                    if (d != 0) {
+                        temp.fLista.add(filmyLista.get(d - 1));
+
+                    } else if (d == 0) {
+                        break;
+                    }
                 }
             }
-        }
     }
-
 
     public void repertuar() {
 
@@ -82,9 +79,10 @@ public class KinoController {
         System.out.println();
         for (Kino temp : listaKin) {
             System.out.println(temp.getNazwaKina());
-            System.out.println(temp.getfLista());
+            for (String x : temp.fLista) {
+            System.out.println(x);
         }
-
+    }
 
     }
 }
